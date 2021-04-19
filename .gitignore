@@ -1,4 +1,4 @@
 /.idea
-/.allure
+/allure-results
 /target
-/build
+/build/reports/tests
