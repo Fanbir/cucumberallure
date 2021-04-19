@@ -3,8 +3,8 @@ package stepdef;
 import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.И;
 import io.cucumber.java.ru.Тогда;
-import stepdef.pages.DemoqaHomePage;
-import stepdef.pages.DemoqaLoginPage;
+import pages.DemoqaHomePage;
+import pages.DemoqaLoginPage;
 
 public class StepsDefs {
     private DemoqaLoginPage demoqaLoginPage = new DemoqaLoginPage();
