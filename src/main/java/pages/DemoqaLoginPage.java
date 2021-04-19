@@ -28,4 +28,5 @@ public class DemoqaLoginPage {
     public void clickLoginButton() {
         $(By.id("login")).click();
     }
+
 }
