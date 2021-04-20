@@ -7,26 +7,32 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 
 public class Hooks {
 
+    public static WebDriver driver;
+
     @Before
     public static void setUp(Scenario scenario) {
-        System.setProperty("webdriver.chrome.driver", "drv/chromedriver89.exe");
+        System.setProperty("webdriver.chrome.driver", "drv/chromedriver.exe");
         Configuration.startMaximized = true;
-        Configuration.timeout=10000;
+        Configuration.timeout=20000;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+        Configuration.browser = "chrome";
+        Configuration.browserVersion = "89.0";
+        Configuration.remote = "http://188.130.155.80:4444/wd/hub";
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+        Configuration.browserCapabilities = capabilities;
     }
 
-    /**
-     * Закрывающий метод, выполняющийся после каждого сценария. Расширен сохранением скриншотов в случае ошибок.
-     *
-     * @param scenario сценарий, после которого выполняется закрывающий метод
-     */
     @After
     public static void tearDown(Scenario scenario) {
-        Selenide.closeWebDriver(); // закрываем браузер
+        Selenide.closeWebDriver();
     }
 
 }
