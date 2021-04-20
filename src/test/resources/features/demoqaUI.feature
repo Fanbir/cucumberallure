@@ -1,8 +1,3 @@
-History
-2 contributors
-@npoxop@Fanbir
-40 lines (29 sloc)  2.31 KB
-
 #language: ru
 @allProject
 Функционал: UI тесты demoqa.com
